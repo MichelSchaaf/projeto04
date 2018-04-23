@@ -22,8 +22,22 @@
         response.sendRedirect(request.getRequestURI());
     }
     
-%>
+if (request.getParameter("salvar") != null){
+        Fornecedor x = new Fornecedor();
+        x.setNome(request.getParameter("nome"));
+        x.setRazao(request.getParameter("razao"));
+        x.setCnpj(request.getParameter("cnpj"));
+        x.setEmail(request.getParameter("email"));
+        x.setTel(request.getParameter("tel"));
+        x.setEnd(request.getParameter("end"));
+        
+        int i = Integer.parseInt(request.getParameter("i"));
+        BD.getFornecedores().remove(i);
+        BD.getFornecedores().add(i, x);
+        response.sendRedirect(request.getRequestURI());
+    }
 
+%>
 
 
 <html>
@@ -33,6 +47,23 @@
     </head>
     <body>
         <h1>Cadastro de fornecedores</h1>
+        
+        <% if (request.getParameter("edit") != null){ 
+        int i = Integer.parseInt(request.getParameter("i"));%>
+        
+          <fieldset>  
+            <form>
+                Nome:<br><input type="text" name="nome" value="<%= BD.getFornecedores().get(i).getNome() %>"><br>
+                Razao social:<br><input type="text" name="razao" value="<%= BD.getFornecedores().get(i).getRazao() %>"><br>
+                CNPJ:<br><input type="text" name="cnpj" value="<%= BD.getFornecedores().get(i).getCnpj() %>"><br>
+                Email:<br><input type="text" name="email" value="<%= BD.getFornecedores().get(i).getEmail() %>"><br>
+                Telefone:<br><input type="text" name="tel" value="<%= BD.getFornecedores().get(i).getTel() %>"><br>
+                Endereço<br><input type="text" name="end" value="<%= BD.getFornecedores().get(i).getEnd() %>"><br>
+                <br><form><input type="submit" name="salvar" value="Salvar"><input type="hidden" name="i" value="<%= i%>"></form>
+            </form>
+          </fieldset>
+        
+        <% } else { %>  
         
           <fieldset>  
             <form>
@@ -45,7 +76,8 @@
                 <br><input type="submit" name="add" value="Adicionar">
             </form>
           </fieldset>
-
+        <% } %>
+        
         
         <table border="1">
             <tr>

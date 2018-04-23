@@ -23,6 +23,21 @@
        
     }   
 
+    if (request.getParameter("salvar") != null){
+        Cliente x = new Cliente();
+        x.setNome(request.getParameter("nome"));
+        x.setCpf(request.getParameter("cpf"));
+        x.setRg(request.getParameter("rg"));
+        x.setEmail(request.getParameter("email"));
+        x.setTel(request.getParameter("tel"));
+        x.setEnd(request.getParameter("end"));
+        
+        int i = Integer.parseInt(request.getParameter("i"));
+        BD.getClientes().remove(i);
+        BD.getClientes().add(i, x);
+        response.sendRedirect(request.getRequestURI());
+    }
+
 %>
 
 <html>
@@ -32,6 +47,23 @@
     </head>
     <body>
         <h1>Cadastro de clientes</h1>
+        
+        <% if (request.getParameter("edit") != null){ 
+        int i = Integer.parseInt(request.getParameter("i"));%>
+          
+        <fieldset>
+            <form>
+                Nome:<br><input type="text" name="nome" value="<%= BD.getClientes().get(i).getNome() %>" ><br>
+                CPF:<br><input type="text" name="cpf" value="<%= BD.getClientes().get(i).getCpf() %>"><br>
+                RG:<br><input type="text" name="rg" value="<%= BD.getClientes().get(i).getRg() %>"><br>
+                Email:<br><input type="text" name="email" value="<%= BD.getClientes().get(i).getEmail() %>"><br>
+                Telefone:<br><input type="text" name="tel" value="<%= BD.getClientes().get(i).getTel() %>"><br>
+                Endereço<br><input type="text" name="end" value="<%= BD.getClientes().get(i).getEnd() %>"><br>
+                <br><form><input type="submit" name="salvar" value="Salvar"><input type="hidden" name="i" value="<%= i%>"></form>
+            </form>
+        </fieldset>
+        
+        <% } else { %>
         
             <fieldset>
             <form>
@@ -44,6 +76,7 @@
                 <br><input type="submit" name="add" value="Adicionar">
             </form>
             </fieldset>
+        <% } %>
             
         <table border="1">
             <tr>
