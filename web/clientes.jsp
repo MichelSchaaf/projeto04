@@ -59,7 +59,9 @@
                 Email:<br><input type="text" name="email" value="<%= BD.getClientes().get(i).getEmail() %>"><br>
                 Telefone:<br><input type="text" name="tel" value="<%= BD.getClientes().get(i).getTel() %>"><br>
                 Endereço<br><input type="text" name="end" value="<%= BD.getClientes().get(i).getEnd() %>"><br>
-                <br><form><input type="submit" name="salvar" value="Salvar"><input type="hidden" name="i" value="<%= i%>"></form>
+                <br><form><input type="submit" name="salvar" value="Salvar"><input type="hidden" name="i" value="<%= i%>">
+                          <input type="submit" name="cancel" value="Cancelar">
+                   </form>
             </form>
         </fieldset>
         
