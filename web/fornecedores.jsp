@@ -32,8 +32,9 @@ if (request.getParameter("salvar") != null){
         x.setEnd(request.getParameter("end"));
         
         int i = Integer.parseInt(request.getParameter("i"));
-        BD.getFornecedores().remove(i);
-        BD.getFornecedores().add(i, x);
+         BD.getFornecedores().set(i, x);
+        //BD.getFornecedores().remove(i);
+        //BD.getFornecedores().add(i, x);
         response.sendRedirect(request.getRequestURI());
     }
 

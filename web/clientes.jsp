@@ -33,8 +33,9 @@
         x.setEnd(request.getParameter("end"));
         
         int i = Integer.parseInt(request.getParameter("i"));
-        BD.getClientes().remove(i);
-        BD.getClientes().add(i, x);
+         BD.getClientes().set(i, x);
+        //BD.getClientes().remove(i);
+        //BD.getClientes().add(i, x);
         response.sendRedirect(request.getRequestURI());
     }
 
