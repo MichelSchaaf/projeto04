@@ -31,10 +31,10 @@
                     </div>
 
                     <div class="col-sm-4"> 
-                        <p style="font-weight: bold">NOME</p>
-                        <p>O QUE QUISER</p>
-                        <center><img src="#" class="img-responsive img-circle margin imagem"></center><br>
-                        <center><a href="#" style="color:#1abc9c">LinkedIn</a></center>
+                        <p style="font-weight: bold">Fernando Pedro</p>
+                        <p>ADS - FATEC- 2018</p>
+                        <center><img src="fotos/fernando.jpg" class="img-responsive img-circle margin imagem"></center><br>
+                        <center><a href="https://github.com/fernando0123" style="color:#1abc9c">GitHub</a></center>
                     </div>
                 </div>
             </div>
