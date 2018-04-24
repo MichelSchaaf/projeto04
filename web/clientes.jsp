@@ -44,8 +44,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastro de clientes</title>
+        <link href="css/newcss.css" rel="stylesheet">
+        <%@include file="WEB-INF/jspf/cabeçalho.jspf"%> 
     </head>
     <body>
+        <%@include file="WEB-INF/jspf/navbar.jspf"%>
+        <div class="container">
         <h1>Cadastro de clientes</h1>
         
         <% if (request.getParameter("edit") != null){ 
@@ -79,7 +83,8 @@
             </form>
             </fieldset>
         <% } %>
-            
+         
+        <br><hr><br>
         <table border="1">
             <tr>
                 <th>Índice</th>
@@ -118,5 +123,6 @@
             </tr>
          <% } %>   
         </table>
+        </div>
     </body>
 </html>

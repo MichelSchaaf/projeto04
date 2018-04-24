@@ -44,8 +44,12 @@ if (request.getParameter("salvar") != null){
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastro de fornecedores</title>
+        <link href="css/newcss.css" rel="stylesheet">
+        <%@include file="WEB-INF/jspf/cabeçalho.jspf"%> 
     </head>
     <body>
+        <%@include file="WEB-INF/jspf/navbar.jspf"%>
+        <div class="container">
         <h1>Cadastro de fornecedores</h1>
         
         <% if (request.getParameter("edit") != null){ 
@@ -80,7 +84,7 @@ if (request.getParameter("salvar") != null){
           </fieldset>
         <% } %>
         
-        
+        <br><hr><br>
         <table border="1">
             <tr>
                 <th>Índice</th>
@@ -118,5 +122,6 @@ if (request.getParameter("salvar") != null){
             </tr>
          <% } %>   
         </table>
+        </div>
     </body>
 </html>
